@@ -1,0 +1,20 @@
+{
+    "commonConf": {
+    "huskarUrl": "{{_ .ELE_HUSKAR_URL}}",
+    "huskarToken": "{{_ .APP_HUSKAR_TOKEN}}",
+    "traceUrl": "{{_ .ELE_TRACE_URL}}",
+    "metricUrl": "{{_ .ELE_STATSD_URL ""}}"
+},
+    "serverConf": {
+    "name": "{{_ .APP_ID}}",
+        "protocol": "json",
+        "group": "{{_ .SERVER_GROUP}}",
+        "port": {{_ .SERVER_PORT}},
+        "threadPoolSize": {{_ .SERVER_THREAD_POOL_SIZE 24}},
+        "bufferQueueSize": {{_ .SERVER_BUFFER_QUEUE_SIZE 200}},
+        "initializer": "me.ele.themis.judgement.impl.soa.ServiceInitializer",
+        "interfaces": [
+            "me.ele.themis.judgement.api.JudgementService"
+        ]
+    }
+}

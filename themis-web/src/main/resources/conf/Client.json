@@ -1,0 +1,36 @@
+{
+  "commonConf": {
+    "huskarUrl": "",
+    "huskarToken": "",
+    "traceUrl": "",
+    "metricUrl": ""
+  },
+  "clientConfs": [
+    {
+      "name": "themis.judgement.base",
+      "protocol": "json",
+      "group": "stable",
+      "threadPoolSize": 24,
+      "timeoutInMillis": 3000,
+      "interfaces": [
+        "me.ele.themis.judgement.api.JudgementService"
+      ],
+      "lbStrategy": "round-robin",
+      "tpStrategy": "queue",
+      "providerList":["localhost:8088"]
+    },
+    {
+      "name": "themis.ruleengine.base",
+      "protocol": "json",
+      "group": "stable",
+      "threadPoolSize": 24,
+      "timeoutInMillis": 3000,
+      "interfaces": [
+        "me.ele.themis.ruleengine.api.RuleService"
+      ],
+      "lbStrategy": "round-robin",
+      "tpStrategy": "queue",
+      "providerList":["localhost:8090"]
+    }
+  ]
+}

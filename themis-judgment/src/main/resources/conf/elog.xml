@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="5">
+    <!--日志根目录-->
+    <property name="LOG_DIR" value="/data/log/sesame.base"/>
+    <!--异常堆栈分隔符配置-->
+    <pattern line.separator="\n"/>
+
+    <appender name="DEBUG"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 只输出特定level的日志，注意onMatch和onMismatch必须有 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <file>${LOG_DIR}/debugAccess.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/debugAccess.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder/>
+    </appender>
+
+    <appender name="INFO"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 只输出特定level的日志，注意onMatch和onMismatch必须有 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <file>${LOG_DIR}/infoAccess.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/infoAccess.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder/>
+    </appender>
+
+    <appender name="WARN"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 只输出特定level的日志，注意onMatch和onMismatch必须有 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <file>${LOG_DIR}/warnAccess.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/warnAccess.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder/>
+    </appender>
+
+    <appender name="ERROR"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 输出大于该level的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+
+        <file>${LOG_DIR}/errorAccess.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/errorAccess.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder/>
+    </appender>
+
+
+    <appender name="SYSLOG"
+              class="me.ele.elog.appender.SyslogAppender">
+        <syslogHost>localhost</syslogHost>
+        <facility>LOCAL6</facility>
+        <!-- 输出大于该level的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+
+    <!-- 异步appender，在输出日志比较多，并且有性能需求时，必须使用 -->
+    <appender name="ASYNC"
+              class="me.ele.elog.appender.AsyncAppender">
+        <!-- 这个size首先要是2的幂，这是异步的缓冲队列，长度可以修改 -->
+        <buffer size="2048"/>
+        <appender-ref ref="SYSLOG"/>
+        <!--<appender-ref ref="DEBUG"/>-->
+        <!--<appender-ref ref="INFO"/>-->
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </appender>
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder/>
+    </appender>
+
+    <root level="INFO">
+        <!--<appender-ref ref="ASYNC"/>-->
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

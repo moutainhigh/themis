@@ -1,0 +1,20 @@
+{
+  "commonConf": {
+    "huskarUrl": "",
+    "huskarToken": "",
+    "traceUrl": "",
+    "metricUrl": ""
+  },
+  "serverConf": {
+    "name": "themis.judgement.base",
+    "protocol": "json",
+    "group": "local",
+    "port": 8088,
+    "threadPoolSize": 24,
+    "bufferQueueSize": 3000,
+    "initializer": "me.ele.themis.judgement.impl.soa.ServiceInitializer",
+    "interfaces": [
+      "me.ele.themis.judgement.api.JudgementService"
+    ]
+  }
+}

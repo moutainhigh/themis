@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="jobService" class="me.ele.themis.ruleengine.quartz.PullOrderJob"> </bean>
+
+    <bean id="invokeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="jobService" /> <!--目标Job-->
+        </property>
+        <property name="targetMethod">
+            <value>execute</value> <!--目标方法-->
+        </property>
+        <property name="concurrent">
+            <value>false</value> <!--设置是否同步-->
+        </property>
+    </bean>
+
+    <bean id="jobServiceCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="invokeJob" />
+        <property name="cronExpression" value="5/5 * * * * ?" />
+    </bean>
+
+    <bean id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="jobServiceCronTrigger"/>
+            </list>
+        </property>
+    </bean>
+</beans>

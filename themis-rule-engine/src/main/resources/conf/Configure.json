@@ -1,0 +1,20 @@
+{
+  "commonConf": {
+    "huskarUrl": "",
+    "huskarToken": "",
+    "traceUrl": "",
+    "metricUrl": ""
+  },
+  "serverConf": {
+    "name": "themis.ruleengine.base",
+    "protocol": "json",
+    "group": "local",
+    "port": 8090,
+    "threadPoolSize": 24,
+    "bufferQueueSize": 3000,
+    "initializer": "me.ele.themis.ruleengine.soa.ServiceInitializer",
+    "interfaces": [
+      "me.ele.themis.ruleengine.api.RuleService"
+    ]
+  }
+}

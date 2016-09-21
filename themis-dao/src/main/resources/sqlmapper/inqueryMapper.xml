@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.ele.themis.common.dao.RulesDao">
+
+    <select id="queryRulesScript" parameterType="int" resultType="String">
+        select script from rule_script where rule_id = #{ruleId}
+    </select>
+
+    <insert id="addRule" parameterType="map" >
+       INSERT into rule_script
+           (rule_name, script)
+       values
+           (#{ruleName},#{script})
+       <selectKey>
+           select seq_rule_script.nextval from dual
+       </selectKey>
+     </insert>
+
+    <select id="queryAllRules" resultType="ruleScriptVo" >
+        select
+              rule_id as "ruleId",
+              rule_name as "ruleName",
+              script as "script"
+        from rule_script
+    </select>
+
+
+</mapper>

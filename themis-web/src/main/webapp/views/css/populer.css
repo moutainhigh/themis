@@ -1,0 +1,148 @@
+
+body, ul, li, div, h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: outside none none;
+}
+a {
+    text-decoration: none;
+}
+.clr {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+a.closeBtn {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #85b6e2;
+    color: #333;
+    display: block;
+    padding: 4px 0;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 10px;
+    width: 60px;
+}
+a.closeBtn:hover {
+    background: #85b6e2 none repeat scroll 0 0;
+    border: 1px solid #85b6e2;
+    color: #fff;
+}
+a.commitBtn {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #85b6e2;
+    color: #333;
+    display: block;
+    padding: 4px 0;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    bottom: 10px;
+    width: 60px;
+}
+a.commitBtn:hover {
+    background: #85b6e2 none repeat scroll 0 0;
+    border: 1px solid #85b6e2;
+    color: #fff;
+}
+body {
+    padding: 10px 20px 200px;
+}
+h1 {
+    color: #85b6e2;
+    padding-top: 20px;
+    text-align: center;
+}
+.example {
+    border: 1px dashed #ccc;
+    margin-top: 10px;
+    padding: 40px;
+}
+.example .description {
+    color: #85b6e2;
+    float: left;
+    font-size: 20px;
+    padding: 10px 20px 0 80px;
+}
+.tigger {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #999;
+    color: #333;
+    cursor: pointer;
+    display: block;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    width: 80px;
+}
+.example select {
+    margin-top: 10px;
+}
+.blk {
+    position: relative;
+    width: 500px;
+}
+.blk .head, .blk .head-right, .blk .foot, .blk .foot-right {
+    background: rgba(0, 0, 0, 0)  repeat scroll 0 0;
+    height: 4px;
+    overflow: hidden;
+}
+.blk .head {
+    padding-left: 4px;
+}
+.blk .head-right {
+    background-position: right top;
+}
+.blk .foot {
+    background-position: left bottom;
+    padding-left: 4px;
+}
+.blk .foot-right {
+    background-position: right bottom;
+}
+.blk .main {
+    background: #fff none repeat scroll 0 0;
+    border-left: 2px solid #85b6e2;
+    border-right: 2px solid #85b6e2;
+    position: relative;
+    width: 700px;
+    height:500px;
+}
+.blk .main h2 {
+    color: #0593e2;
+    font: bold 16px "Microsoft YaHei";
+    padding: 10px 20px 2px;
+}
+.blk .main label {
+    color: #85b6e2;
+    font: bold 16px "Microsoft YaHei";
+    padding: 10px 20px 2px;
+}
+.blk .main textarea {
+    font-size: 10px;
+    /*padding: 10px 10px 20px 20px;*/
+    width: 600px;
+    height:300px;
+}
+.blk .main ul {
+    font-size: 12px;
+    overflow: hidden;
+    padding: 20px;
+}
+.t5 .blk {
+    width: 700px;
+}
+.t5 .blk h2 {
+    color: #aaa;
+}
+.t5 .blk .main ul li a {
+    color: #aaa;
+}
+.t5 .blk .head, .t5 .blk .head-right, .t5 .blk .foot, .t5 .blk .foot-right {
+    background: rgba(0, 0, 0, 0) url("images/pop_up_bg2.png") repeat scroll 0 0;
+}
+* html .popup_iframe {
+}

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>themis-service</artifactId>
+        <groupId>me.ele</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>themis-web</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+
+        <themis-judgment-api-version>1.0-SNAPSHOT</themis-judgment-api-version>
+        <themis-rule-engine-api-version>1.0-SNAPSHOT</themis-rule-engine-api-version>
+
+        <java-version>1.8</java-version>
+        <spring-framework-version>4.2.1.RELEASE</spring-framework-version>
+
+        <javaee-web-api-version>6.0</javaee-web-api-version>
+        <aspectjrt-version>1.6.10</aspectjrt-version>
+        <commons-io-version>2.4</commons-io-version>
+        <commons-fileupload-version>1.2.2</commons-fileupload-version>
+        <jackson-version>2.4.4</jackson-version>
+        <junit-version>4.11</junit-version>
+        <org-apache-commons-version>3.3.2</org-apache-commons-version>
+
+        <!-- soa -->
+        <pylon-core-version>2.0.5</pylon-core-version>
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>me.ele</groupId>
+            <artifactId>themis-judgement-api</artifactId>
+            <version>${themis-judgment-api-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.ele</groupId>
+            <artifactId>themis-rule-engine-api</artifactId>
+            <version>${themis-rule-engine-api-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-jstlel</artifactId>
+            <version>1.2.2-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-framework-version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>${javaee-web-api-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- add dependencies for spring -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload-version}</version>
+        </dependency>
+        <!-- soa -->
+        <dependency>
+            <groupId>eleme-jarch</groupId>
+            <artifactId>pylon-core</artifactId>
+            <version>${pylon-core-version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>eleme-jarch</groupId>
+            <artifactId>pylon-contract</artifactId>
+            <version>${pylon-core-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${org-apache-commons-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>me.ele</groupId>
+            <artifactId>themis-judgement-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

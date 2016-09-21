@@ -1,0 +1,10 @@
+192.168.68.5:38120
+
+
+me.ele.napos.miracle.dist.api.CacheShopProfileService
+
+
+getPShopProfile
+
+
+{"shopId":"7689"}

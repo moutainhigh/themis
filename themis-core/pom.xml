@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>themis-service</artifactId>
+        <groupId>me.ele</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>themis-core</artifactId>
+
+    <properties>
+        <themis-dao-version>1.0-SNAPSHOT</themis-dao-version>
+        <utility-ejedis-version>3.0.15</utility-ejedis-version>
+        <spring-data-redis-version>1.7.2.RELEASE</spring-data-redis-version>
+        <themis-proxy-version>1.0-SNAPSHOT</themis-proxy-version>
+        <drools-spring-version>5.6.0.Final</drools-spring-version>
+    </properties>
+
+    <dependencies>
+        <!-- drool 规则引擎-->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-spring</artifactId>
+            <version>${drools-spring-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.ele</groupId>
+            <artifactId>themis-dao</artifactId>
+            <version>${themis-dao-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>me.ele</groupId>
+            <artifactId>themis-proxy</artifactId>
+            <version>${themis-proxy-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eleme-jarch</groupId>
+            <artifactId>utility-ejedis</artifactId>
+            <version>${utility-ejedis-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${spring-data-redis-version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,41 @@
+package me.ele.themis.common.drools
+
+import me.ele.themis.ruleengine.drools.RuleDomain;
+import me.ele.themis.ruleengine.drools.RuleTestTask;
+
+
+rule "drools_11"
+    salience 100
+    when
+        $rule:RuleDomain(type >= 20)
+    then
+
+        $rule.setName("random mun > 20");
+        $rule.setDiscription("level + 1");
+        $rule.setAward($rule.getAward() +1 );
+//        update($rule);
+end
+
+rule "drools_22"
+    salience 100
+    when
+        $rule:RuleDomain(type >= 10 && type < 20)
+    then
+
+        $rule.setName("random mun > 10");
+        $rule.setDiscription("level - 1");
+        $rule.setAward($rule.getAward() - 1 );
+//        update($rule);
+end
+
+rule "drools_33"
+    salience 100
+    when
+        $rule:RuleDomain(type < 10)
+    then
+
+        $rule.setName("random mun < 10");
+        $rule.setDiscription("level - 2");
+        $rule.setAward($rule.getAward() - 2 );
+//        update($rule);
+end
